@@ -10,4 +10,13 @@ puts "song name: " + song.name
 puts "song album: " + song.album
 song.save
 
+songs_data = [{name: "Gold Digger", album: "Late Registration"},{name: "Lose Yourself", album: "8 Mile"}, {name: "A Thousand Miles", album: "Legally Blonde"}]
+
+songs_data.each do |song_data|
+    song = Song.new(song_data)
+    puts "song name: " + song.name
+    puts "song album: " + song.album
+    song.save
+end
+
 DB[:conn].execute("SELECT * FROM songs")
